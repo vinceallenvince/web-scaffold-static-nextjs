@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -64,6 +64,14 @@ export default function ClientNavbar({ className, translations }: ClientNavbarPr
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLUListElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  // Close the desktop dropdown when clicking a link
+  const closeDesktopDropdown = useCallback(() => {
+    if (detailsRef.current) {
+      detailsRef.current.removeAttribute('open');
+    }
+  }, []);
 
   // Define menu items for both mobile and desktop menus
   const menuItems = [
@@ -210,12 +218,12 @@ export default function ClientNavbar({ className, translations }: ClientNavbarPr
                   </NavLink>
                 </li>
                 <li key="examples-desktop">
-                  <details>
+                  <details ref={detailsRef}>
                     <summary className="text-base font-medium">{translations.examples}</summary>
                     <ul className="p-2 bg-base-100 z-[1]">
                       {menuItems.map(item => (
                         <li key={item.key}>
-                          <NavLink href={item.href}>
+                          <NavLink href={item.href} onClick={closeDesktopDropdown}>
                             {item.label}
                           </NavLink>
                         </li>
