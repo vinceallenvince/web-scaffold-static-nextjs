@@ -23,6 +23,7 @@ To effectively work with this application, refer to these official documentation
 | Technology | Documentation Link | Description |
 |------------|-------------------|-------------|
 | Vitest | [https://vitest.dev/guide/](https://vitest.dev/guide/) | Unit testing framework |
+| Playwright | [https://playwright.dev/docs/intro](https://playwright.dev/docs/intro) | E2E testing framework |
 | React Testing Library | [https://testing-library.com/docs/react-testing-library/intro/](https://testing-library.com/docs/react-testing-library/intro/) | Component testing utilities |
 
 ### Other Tools

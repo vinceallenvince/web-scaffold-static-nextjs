@@ -72,24 +72,36 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Testing
 
-This project uses [Vitest](https://vitest.dev/) for unit and component testing.
+This project uses [Vitest](https://vitest.dev/) for unit/component testing and [Playwright](https://playwright.dev/) for end-to-end testing.
 
 ```bash
-# Run all tests
+# Run unit tests
 npm test
 
-# Run tests in watch mode during development
+# Run unit tests in watch mode
 npm run test:watch
+
+# Run E2E tests (headless)
+npm run test:e2e
+
+# Run E2E tests with visible browser
+npm run test:e2e -- --headed
+
+# Run E2E tests with interactive UI (manual test selection)
+npm run test:e2e:ui
+
+# Run E2E tests in debug mode (step through with DevTools)
+npm run test:e2e -- --debug
 ```
 
 **Test file conventions:**
-- Place test files alongside source files with `.test.ts` or `.test.tsx` extension
-- Example: `src/lib/utils.test.ts`, `src/components/ui/button/Button.test.tsx`
+- Unit tests: Place alongside source files with `.test.ts` or `.test.tsx` extension
+- E2E tests: Place in `e2e/` directory with `.spec.ts` extension
 
 **Testing approach:**
 - Unit tests for utility functions in `src/lib/`
 - Component tests for UI components in `src/components/ui/`
-- Integration tests for page components
+- E2E tests for user flows and page navigation in `e2e/`
 
 ### Available Pages
 

@@ -91,7 +91,7 @@
   "about": {
     "title": "Sobre Nosotros",
     "subtitle": "Aprende más sobre Estructura de Autenticación Web",
-    "description": "Estructura de Autenticación Web es una plantilla de autenticación moderna construida con Next.js y Auth.js, diseñada para ayudar a los desarrolladores a implementar rápidamente una autenticación segura en sus aplicaciones web.",
+    "description": "Web Scaffold Static es una plantilla moderna construida con Next.js, diseñada para ayudar a los desarrolladores a construir rápidamente aplicaciones web estáticas.",
     "featuresTitle": "Características Principales",
     "feature1": "Autenticación con Enlace Mágico",
     "feature2": "Soporte de Internacionalización",
@@ -117,11 +117,14 @@
     "twitterContact": "Encuéntranos en Twitter"
   },
   "helloworld": {
-    "title": "Hola Mundo",
-    "welcome": "¡Bienvenido, {name}!",
-    "description": "Esta es una página protegida que requiere autenticación.",
-    "loading": "Cargando...",
-    "authenticatedUser": "usuario autenticado"
+    "title": "¡Hola Mundo!",
+    "welcome": "¡Bienvenido a nuestro sitio web estático! Esta es una página de demostración simple que muestra nuestro sistema de componentes.",
+    "description": "Esta página demuestra cómo funciona nuestro sistema de internacionalización con contenido estático.",
+    "exploreTitle": "Lo que puedes explorar:",
+    "explore1": "Ejemplos de componentes en la sección de Ejemplos",
+    "explore2": "Soporte multilingüe (Inglés/Español)",
+    "explore3": "Diseño responsivo con DaisyUI",
+    "explore4": "Arquitectura moderna con TypeScript y Next.js"
   },
   "examples": {
     "title": "Ejemplos de Componentes",

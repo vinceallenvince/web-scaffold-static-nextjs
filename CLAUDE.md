@@ -27,11 +27,23 @@ npm run lint:fix
 
 ### Testing
 ```bash
-# Run all tests
+# Run unit tests
 npm test
 
-# Watch mode for development
+# Unit tests in watch mode
 npm run test:watch
+
+# Run E2E tests (headless)
+npm run test:e2e
+
+# Run E2E tests with visible browser
+npm run test:e2e -- --headed
+
+# E2E tests with interactive UI (manual test selection)
+npm run test:e2e:ui
+
+# E2E tests in debug mode (step through with DevTools)
+npm run test:e2e -- --debug
 ```
 
 ## Architecture Overview
@@ -59,9 +71,10 @@ npm run test:watch
 - **Default Locale**: English (`en`)
 
 ### Testing Framework
-- **Vitest**: Simple test configuration in `vitest.config.ts`
-- **Component Testing**: Focus on UI component functionality
+- **Vitest**: Unit/component tests configured in `vitest.config.ts`
+- **Playwright**: E2E tests configured in `playwright.config.ts`, tests in `e2e/`
 - **Unit Tests**: Test utility functions and business logic
+- **E2E Tests**: Test user flows and page navigation
 
 ## Important Patterns
 

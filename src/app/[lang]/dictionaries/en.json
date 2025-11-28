@@ -91,7 +91,7 @@
   "about": {
     "title": "About Us",
     "subtitle": "Learn more about Web Auth Scaffold",
-    "description": "Web Auth Scaffold is a modern authentication template built with Next.js and Auth.js, designed to help developers quickly implement secure authentication in their web applications.",
+    "description": "Web Scaffold Static is a modern template built with Next.js, designed to help developers quickly build static web applications.",
     "featuresTitle": "Key Features",
     "feature1": "Magic Link Authentication",
     "feature2": "Internationalization Support",
@@ -117,11 +117,14 @@
     "twitterContact": "Find us on Twitter"
   },
   "helloworld": {
-    "title": "Hello World",
-    "welcome": "Welcome, {name}!",
-    "description": "This is a protected page that requires authentication.",
-    "loading": "Loading...",
-    "authenticatedUser": "authenticated user"
+    "title": "Hello World!",
+    "welcome": "Welcome to our static website! This is a simple demo page showcasing our component system.",
+    "description": "This page demonstrates how our internationalization system works with static content.",
+    "exploreTitle": "What you can explore:",
+    "explore1": "Component examples in the Examples section",
+    "explore2": "Multi-language support (English/Spanish)",
+    "explore3": "Responsive design with DaisyUI",
+    "explore4": "Modern TypeScript and Next.js architecture"
   },
   "examples": {
     "title": "Component Examples",
