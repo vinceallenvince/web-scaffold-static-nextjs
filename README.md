@@ -109,7 +109,6 @@ npm run test:watch
 
 - [Technical Documentation](docs/tech-documentation.md) - Core technologies and references
 - [Component Documentation](docs/component-documentation.md) - UI components and props
-- [Development Guide](docs/guides/development-guide.md) - Detailed development instructions
 
 ## Deployment
 
