@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { locales, defaultLocale } from "@/constants/i18n";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // Get the pathname from the URL
   const pathname = request.nextUrl.pathname;
   
