@@ -34,6 +34,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         : 'bumblebee'
     ) as Theme;
     
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- theme must be read from localStorage/matchMedia, which are only available client-side
     setTheme(validTheme);
     document.documentElement.setAttribute('data-theme', validTheme);
     setMounted(true);
