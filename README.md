@@ -124,19 +124,81 @@ npm run test:e2e -- --debug
 
 ## Deployment
 
-This application is designed to be deployed on any platform that supports Next.js applications:
+### Cloud Run
 
-1. Build the application:
-   ```bash
-   npm run build
-   ```
+This repository includes a production `Dockerfile` and `.dockerignore` for
+Google Cloud Run. Cloud Run hosts the full Next.js application: static pages,
+server-rendered routes, and any future route handlers (for example,
+`/api/detect`) at one public URL.
 
-2. Start the production server:
-   ```bash
-   npm start
-   ```
+The Dockerfile builds dependencies inside a Linux container. This is intentional:
+it avoids cross-platform optional-native-dependency issues in Tailwind that can
+occur when a lockfile was created on macOS and a managed Linux Buildpack is used.
 
-For detailed deployment instructions for specific platforms, see [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+#### Prerequisites
+
+- A Google Cloud project with billing enabled.
+- [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) authenticated
+  with an account that can deploy to that project.
+
+Set the active project, replacing `PROJECT_ID` with its **Project ID** (not its
+display name):
+
+```bash
+gcloud config set project PROJECT_ID
+```
+
+#### Deploy
+
+From the repository root, deploy the app to `us-east1` (or choose another
+Cloud Run region):
+
+```bash
+gcloud run deploy web-scaffold \
+  --source . \
+  --region us-east1 \
+  --allow-unauthenticated
+```
+
+The first deployment enables the Cloud Run, Cloud Build, and Artifact Registry
+services as needed, builds the Docker image, creates a public service, and
+prints its `https://…run.app` URL. Subsequent deployments use the same command.
+
+Cloud Run, Cloud Build, and Artifact Registry can incur charges. Review the
+service's region, traffic, and billing settings before production use.
+
+#### Environment variables and secrets
+
+For non-sensitive runtime configuration, add environment variables during
+deployment:
+
+```bash
+gcloud run services update web-scaffold \
+  --region us-east1 \
+  --set-env-vars APP_ENV=production
+```
+
+Keep credentials out of the repository and browser bundle. Store production
+secrets in Secret Manager and expose them to the Cloud Run service as secrets;
+server-only route handlers can then read them from their environment.
+
+#### Local production check
+
+The normal local production flow remains:
+
+```bash
+npm run build
+npm start
+```
+
+For a Cloud Run-like container check, build and run the included image locally:
+
+```bash
+docker build -t web-scaffold .
+docker run --rm -p 8080:8080 web-scaffold
+```
+
+Open [http://localhost:8080](http://localhost:8080).
 
 ## License
 
